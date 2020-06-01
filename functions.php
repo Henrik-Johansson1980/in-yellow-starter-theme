@@ -72,9 +72,6 @@ function inyellowstarter_theme_support() {
 	// Set post thumbnail size.
 	set_post_thumbnail_size( 1200, 9999 );
 
-	// Add custom image size used in Cover Template.
-	// add_image_size( 'inyellowstarter-fullscreen', 1980, 9999 );
-
 	// Custom logo.
 	$logo_width  = 120;
 	$logo_height = 90;
@@ -167,20 +164,24 @@ add_action( 'wp_enqueue_scripts', 'inyellowstarter_register_styles' );
 /**
  * Register and Enqueue Scripts.
  */
-// function inyellowstarter_register_scripts() {
 
-// 	$theme_version = wp_get_theme()->get( 'Version' );
+/*
+Enqueue scripts
+function inyellowstarter_register_scripts() {
 
-// 	if ( ( ! is_admin() ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-// 		wp_enqueue_script( 'comment-reply' );
-// 	}
+	$theme_version = wp_get_theme()->get( 'Version' );
 
-// 	wp_enqueue_script( 'inyellowstarter-js', get_template_directory_uri() . '/assets/js/index.js', array(), $theme_version, false );
-// 	wp_script_add_data( 'inyellowstarter-js', 'async', true );
+	if ( ( ! is_admin() ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
 
-// }
+	wp_enqueue_script( 'inyellowstarter-js', get_template_directory_uri() . '/assets/js/index.js', array(), $theme_version, false );
+	wp_script_add_data( 'inyellowstarter-js', 'async', true );
 
-// add_action( 'wp_enqueue_scripts', 'inyellowstarter_register_scripts' );
+}
+
+add_action( 'wp_enqueue_scripts', 'inyellowstarter_register_scripts' );
+phpcs:ignore */
 
 /**
  * Fix skip link focus in IE11.
@@ -207,7 +208,7 @@ add_action( 'wp_print_footer_scripts', 'inyellowstarter_skip_link_focus_fix' );
 function inyellowstarter_menus() {
 
 	$locations = array(
-		'header'    => __( 'Main Top Menu', 'inyellowstarter' ),
+		'header'  => __( 'Main Top Menu', 'inyellowstarter' ),
 		'sidebar' => __( 'Sidebar Expanded Menu', 'inyellowstarter' ),
 		'footer'  => __( 'Footer Menu', 'inyellowstarter' ),
 		'social'  => __( 'Social Menu', 'inyellowstarter' ),
@@ -283,4 +284,3 @@ function inyellowstarter_customizer( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'inyellowstarter_customizer' );
-	
